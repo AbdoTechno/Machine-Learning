@@ -81,7 +81,7 @@ It was used to train and test the spam detection model.
 
 ## 🔗 Resources
 
-- **Model File:** [Download spam_model.pkl](https://github.com/AbdoTechno/Machine-Learning/blob/main/Email%20Spam%20Detection/Models/spam_model.pkl)  
+- **Model File:** [Download spam_model.pkl](https://drive.google.com/file/d/1dikP-EXCULmvXJr0PwsRwm9eaLKpIxLG/view?usp=drive_link)  
 - **GitHub Repository:** [Email Spam Detection on GitHub](https://github.com/AbdoTechno/Machine-Learning/tree/main/Email%20Spam%20Detection)
 
 ---
