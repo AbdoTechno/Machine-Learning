@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Spam Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Email Spam Detection</h1>
+            <p>Check if your email is spam or not!</p>
+        </div>
+        
+        <div class="form-container">
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="input-group">
+                    <textarea name="message" placeholder="Enter your email message here..." required>{% if message %}{{ message }}{% endif %}</textarea>
+                </div>
+                <button type="submit" class="submit-btn">Check Email</button>
+            </form>
+        </div>
+
+        {% if prediction is defined %}
+        <div class="result-container {% if prediction == 'spam' %}spam{% else %}ham{% endif %}">
+            <h2>Result:</h2>
+            <p class="prediction">This email is: <span>{{ prediction.upper() }}</span></p>
+            <div class="result-description">
+                {% if prediction == 'spam' %}
+                <p>⚠️ This message has been classified as spam. It may be unsafe or unwanted.</p>
+                {% else %}
+                <p>✅ This message appears to be legitimate.</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
