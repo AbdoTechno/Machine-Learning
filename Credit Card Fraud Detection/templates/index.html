@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraud Detection App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+        <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    
+    <div class="container">
+        <div class="icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h1>Upload Dataset for Fraud Detection</h1>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="file-input-wrapper"> <input type="file" name="file" accept=".csv" required> </div>
+            <input type="submit" value="Analyze & Predict">
+        </form>
+
+        <div class="file-info">
+            <h3>Supported Format</h3>
+            <p>Please upload a CSV file containing these columns:</p>
+            <pre>Time, V1..V28, Amount, Class</pre>
+        </div>
+    </div>
+</body>
+</html>

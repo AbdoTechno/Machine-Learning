@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rstyle.css') }}">
+</head>
+<body>
+    <div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+    <div class="container">
+        <h1>Fraud Detection Results</h1>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% else %}
+        <div class="summary">
+            <p><strong>Total Samples:</strong> {{ summary["Total Samples"] }}</p>
+            <p><strong>Fraud Cases:</strong> {{ summary["Fraud Cases"] }}</p>
+            <p><strong>Legit Cases:</strong> {{ summary["Legit Cases"] }}</p>
+            <p><strong>Fraud Percentage:</strong> {{ summary["Fraud Percentage"] }}%</p>
+        </div>
+
+        <img src="{{ chart_url }}" alt="Fraud Chart" class="chart">
+
+        <h2>Sample of Detected Fraud Cases</h2>
+        {{ fraud_samples|safe }}
+
+        <div class="actions">
+            <a href="{{ download_link }}" class="btn">📥 Download Full Predictions CSV</a>
+            <a href="/" class="btn secondary">⬅️ Upload Another File</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
